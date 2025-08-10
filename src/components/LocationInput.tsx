@@ -82,28 +82,30 @@ export const LocationInput: React.FC<LocationInputProps> = ({
   return (
     <div className={cn('relative', className)}>
       <div className="relative">
-        <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
+        <div className="absolute left-3 top-1/2 transform -translate-y-1/2 w-6 h-6 bg-gradient-primary rounded-full flex items-center justify-center">
+          <MapPin className="text-white w-3 h-3" />
+        </div>
         <Input
           ref={inputRef}
           type="text"
           value={value}
           onChange={(e) => onChange(e.target.value)}
           placeholder={placeholder}
-          className="pl-10 pr-20 bg-card border-border focus:ring-2 focus:ring-primary focus:border-transparent"
+          className="pl-12 pr-20 py-4 text-lg bg-card border-2 border-border hover:border-primary/50 focus:border-primary focus:ring-2 focus:ring-primary/20 rounded-xl transition-all duration-300"
           onFocus={() => value.length >= 3 && setShowSuggestions(true)}
           onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
         />
         
-        <div className="absolute right-2 top-1/2 transform -translate-y-1/2 flex gap-1">
+        <div className="absolute right-3 top-1/2 transform -translate-y-1/2 flex gap-2">
           {value && (
             <Button
               type="button"
               variant="ghost"
               size="sm"
               onClick={clearInput}
-              className="h-6 w-6 p-0 hover:bg-muted"
+              className="h-8 w-8 p-0 hover:bg-destructive/10 hover:text-destructive rounded-full"
             >
-              <X className="w-3 h-3" />
+              <X className="w-4 h-4" />
             </Button>
           )}
           
@@ -114,33 +116,37 @@ export const LocationInput: React.FC<LocationInputProps> = ({
               size="sm"
               onClick={handleCurrentLocation}
               disabled={geoLoading}
-              className="h-6 w-6 p-0 hover:bg-muted"
+              className="h-8 w-8 p-0 hover:bg-accent/10 hover:text-accent rounded-full"
             >
-              <Navigation className={cn("w-3 h-3", geoLoading && "animate-pulse")} />
+              <Navigation className={cn("w-4 h-4", geoLoading && "animate-spin text-accent")} />
             </Button>
           )}
         </div>
       </div>
 
       {showSuggestions && (suggestions.length > 0 || loading) && (
-        <div className="absolute top-full left-0 right-0 mt-1 bg-card border border-border rounded-lg shadow-lg z-50 max-h-60 overflow-y-auto">
+        <div className="absolute top-full left-0 right-0 mt-2 bg-card border-2 border-border rounded-xl shadow-ride-elevated z-50 max-h-60 overflow-y-auto backdrop-blur-sm animate-fade-in-up">
           {loading ? (
-            <div className="p-4 text-center text-muted-foreground">
-              <Search className="w-4 h-4 animate-pulse mx-auto mb-2" />
-              Searching...
+            <div className="p-6 text-center text-muted-foreground">
+              <div className="w-8 h-8 border-2 border-primary/30 border-t-primary rounded-full animate-spin mx-auto mb-3" />
+              <p className="text-sm font-medium">🔍 Searching locations...</p>
             </div>
           ) : (
             suggestions.map((suggestion) => (
               <button
                 key={suggestion.place_id}
                 onClick={() => handleSuggestionClick(suggestion)}
-                className="w-full text-left px-4 py-3 hover:bg-muted border-b border-border last:border-b-0 transition-colors"
+                className="w-full text-left px-5 py-4 hover:bg-primary/5 border-b border-border/50 last:border-b-0 transition-all duration-200 hover:scale-[1.01] group"
               >
-                <div className="flex items-start gap-3">
-                  <MapPin className="w-4 h-4 mt-1 text-muted-foreground flex-shrink-0" />
-                  <span className="text-sm text-foreground leading-relaxed">
-                    {suggestion.display_name}
-                  </span>
+                <div className="flex items-start gap-4">
+                  <div className="w-8 h-8 bg-gradient-secondary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
+                    <MapPin className="w-4 h-4 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <span className="text-sm text-foreground leading-relaxed font-medium group-hover:text-primary transition-colors duration-200">
+                      {suggestion.display_name}
+                    </span>
+                  </div>
                 </div>
               </button>
             ))

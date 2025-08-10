@@ -159,22 +159,31 @@ const Index = () => {
 
   if (currentRide) {
     return (
-      <div className="min-h-screen bg-background">
-        {/* Header */}
-        <div className="bg-card border-b border-border p-4">
-          <div className="flex items-center justify-between max-w-md mx-auto">
-            <h1 className="text-xl font-bold text-foreground">Your Ride</h1>
+      <div className="min-h-screen bg-gradient-surface">
+        {/* Enhanced Header with gradient */}
+        <div className="relative bg-gradient-hero text-white p-6 overflow-hidden">
+          <div className="absolute inset-0 bg-black/10"></div>
+          <div className="relative flex items-center justify-between max-w-md mx-auto">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                <span className="text-sm font-bold">🚗</span>
+              </div>
+              <div>
+                <h1 className="text-xl font-bold">Your Ride</h1>
+                <p className="text-white/80 text-sm">Track your journey</p>
+              </div>
+            </div>
             <Link to="/history">
-              <Button variant="ghost" size="sm">
+              <Button variant="ghost" size="sm" className="text-white hover:bg-white/20">
                 <HistoryIcon className="w-5 h-5" />
               </Button>
             </Link>
           </div>
         </div>
 
-        <div className="p-4 max-w-md mx-auto space-y-4">
-          {/* Map */}
-          <div className="h-64">
+        <div className="p-4 max-w-md mx-auto space-y-6">
+          {/* Enhanced Map with floating style */}
+          <div className="h-72 card-floating rounded-2xl overflow-hidden animate-fade-in-up">
             <RideMap
               pickup={currentRide.pickup}
               dropoff={currentRide.dropoff}
@@ -183,25 +192,28 @@ const Index = () => {
             />
           </div>
 
-          {/* Ride Status */}
-          <RideStatus
-            ride={currentRide}
-            onCancel={handleCancelRide}
-          />
+          {/* Enhanced Ride Status */}
+          <div className="animate-slide-up">
+            <RideStatus
+              ride={currentRide}
+              onCancel={handleCancelRide}
+              className="card-elevated"
+            />
+          </div>
 
-          {/* Actions */}
+          {/* Enhanced Actions */}
           {['completed', 'cancelled'].includes(currentRide.status) && (
-            <div className="space-y-2">
+            <div className="space-y-3 animate-bounce-in">
               <Button 
                 onClick={resetBooking}
-                className="w-full"
+                className="w-full btn-ride-primary text-lg py-6 rounded-xl"
                 size="lg"
               >
-                Book Another Ride
+                🚀 Book Another Ride
               </Button>
               <Link to="/history" className="block">
-                <Button variant="outline" className="w-full" size="lg">
-                  View Ride History
+                <Button variant="outline" className="w-full border-2 border-primary/20 hover:border-primary/40 py-6 rounded-xl text-lg" size="lg">
+                  📊 View Ride History
                 </Button>
               </Link>
             </div>
@@ -212,13 +224,25 @@ const Index = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <div className="bg-card border-b border-border p-4">
-        <div className="flex items-center justify-between max-w-md mx-auto">
-          <h1 className="text-xl font-bold text-foreground">RideSync</h1>
+    <div className="min-h-screen bg-gradient-surface">
+      {/* Enhanced Header with gradient and ride-sharing theme */}
+      <div className="relative bg-gradient-hero text-white p-6 overflow-hidden">
+        <div className="absolute inset-0 bg-black/10"></div>
+        <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-16 translate-x-16"></div>
+        <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full translate-y-12 -translate-x-12"></div>
+        
+        <div className="relative flex items-center justify-between max-w-md mx-auto">
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm animate-float">
+              <span className="text-2xl">🚗</span>
+            </div>
+            <div>
+              <h1 className="text-2xl font-bold">RideSync</h1>
+              <p className="text-white/80 text-sm">Your reliable ride partner</p>
+            </div>
+          </div>
           <Link to="/history">
-            <Button variant="ghost" size="sm">
+            <Button variant="ghost" size="sm" className="text-white hover:bg-white/20 rounded-xl p-3">
               <HistoryIcon className="w-5 h-5" />
             </Button>
           </Link>
@@ -226,29 +250,36 @@ const Index = () => {
       </div>
 
       <div className="p-4 max-w-md mx-auto space-y-6">
-        {/* Location Inputs */}
-        <Card className="p-4 space-y-4">
-          <h2 className="font-semibold text-foreground">Where to?</h2>
+        {/* Enhanced Location Inputs */}
+        <div className="card-elevated p-6 space-y-6 animate-fade-in-up rounded-2xl">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center">
+              <span className="text-white text-sm">📍</span>
+            </div>
+            <h2 className="text-xl font-bold text-foreground">Where to?</h2>
+          </div>
           
           <LocationInput
             value={pickupInput}
             onChange={setPickupInput}
             onLocationSelect={handlePickupSelect}
-            placeholder="Pickup location"
+            placeholder="🚩 Pickup location"
             showCurrentLocation
+            className="animate-scale-in"
           />
           
           <LocationInput
             value={dropoffInput}
             onChange={setDropoffInput}
             onLocationSelect={handleDropoffSelect}
-            placeholder="Where are you going?"
+            placeholder="🏁 Where are you going?"
+            className="animate-scale-in"
           />
-        </Card>
+        </div>
 
-        {/* Map */}
+        {/* Enhanced Map */}
         {(pickup || dropoff) && (
-          <div className="h-64">
+          <div className="h-80 card-floating rounded-2xl overflow-hidden animate-slide-up">
             <RideMap
               pickup={pickup}
               dropoff={dropoff}
@@ -257,10 +288,15 @@ const Index = () => {
           </div>
         )}
 
-        {/* Vehicle Selection */}
+        {/* Enhanced Vehicle Selection */}
         {pickup && dropoff && (
-          <Card className="p-4 space-y-4">
-            <h2 className="font-semibold text-foreground">Choose a ride</h2>
+          <div className="card-elevated p-6 space-y-6 animate-bounce-in rounded-2xl">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-8 h-8 bg-gradient-secondary rounded-full flex items-center justify-center">
+                <span className="text-white text-sm">🚙</span>
+              </div>
+              <h2 className="text-xl font-bold text-foreground">Choose your ride</h2>
+            </div>
             
             <VehicleSelector
               selectedVehicle={selectedVehicle}
@@ -272,12 +308,21 @@ const Index = () => {
             <Button
               onClick={handleRequestRide}
               disabled={bookingLoading || !fareEstimates[selectedVehicle]}
-              className="w-full"
+              className="w-full btn-ride-primary text-lg py-6 rounded-xl interactive-scale"
               size="lg"
             >
-              {bookingLoading ? 'Requesting...' : 'Request Ride'}
+              {bookingLoading ? (
+                <div className="flex items-center gap-2">
+                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                  Requesting...
+                </div>
+              ) : (
+                <span className="flex items-center gap-2">
+                  🚀 Request Ride
+                </span>
+              )}
             </Button>
-          </Card>
+          </div>
         )}
       </div>
     </div>

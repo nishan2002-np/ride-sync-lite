@@ -81,17 +81,21 @@ export const RideStatus: React.FC<RideStatusProps> = ({
   const etaMinutes = getEstimatedArrival();
 
   return (
-    <Card className={cn('p-6 space-y-6', className)}>
-      {/* Status Header */}
+    <Card className={cn('p-6 space-y-6 card-elevated', className)}>
+      {/* Enhanced Status Header */}
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div
-            className="w-4 h-4 rounded-full animate-pulse"
-            style={{ backgroundColor: status.color }}
-          />
+        <div className="flex items-center gap-4">
+          <div className="relative">
+            <div
+              className={cn("status-indicator w-4 h-4", `status-${ride.status}`)}
+            />
+            <div
+              className={cn("status-indicator w-6 h-6 absolute -top-1 -left-1 opacity-30", `status-${ride.status}`)}
+            />
+          </div>
           <div>
-            <h2 className="text-xl font-bold text-foreground">{status.label}</h2>
-            <p className="text-sm text-muted-foreground">{status.description}</p>
+            <h2 className="text-2xl font-bold text-foreground">{status.label}</h2>
+            <p className="text-sm text-muted-foreground font-medium">{status.description}</p>
           </div>
         </div>
         
@@ -100,7 +104,7 @@ export const RideStatus: React.FC<RideStatusProps> = ({
             variant="outline"
             size="sm"
             onClick={onCancel}
-            className="text-destructive hover:text-destructive-foreground hover:bg-destructive"
+            className="text-destructive hover:text-destructive-foreground hover:bg-destructive border-destructive/30 hover:border-destructive"
           >
             <X className="w-4 h-4 mr-1" />
             Cancel
@@ -108,13 +112,18 @@ export const RideStatus: React.FC<RideStatusProps> = ({
         )}
       </div>
 
-      {/* ETA */}
+      {/* Enhanced ETA */}
       {etaMinutes !== null && (
-        <div className="flex items-center gap-2 p-3 bg-accent/10 rounded-lg">
-          <Clock className="w-5 h-5 text-accent" />
-          <span className="font-semibold text-foreground">
-            Arriving in {etaMinutes} minutes
-          </span>
+        <div className="flex items-center gap-3 p-4 bg-gradient-accent rounded-xl border border-accent/20 animate-pulse-slow">
+          <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+            <Clock className="w-5 h-5 text-white" />
+          </div>
+          <div>
+            <span className="font-bold text-white text-lg">
+              Arriving in {etaMinutes} minutes
+            </span>
+            <p className="text-white/80 text-sm">Driver is on the way</p>
+          </div>
         </div>
       )}
 

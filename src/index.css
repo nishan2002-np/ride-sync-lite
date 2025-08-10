@@ -8,153 +8,143 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 99%;
-    --foreground: 210 22% 15%;
+    --background: 240 10% 98%;
+    --foreground: 210 22% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 22% 15%;
+    --card-foreground: 210 22% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 22% 15%;
+    --popover-foreground: 210 22% 12%;
 
-    --primary: 210 100% 45%;
+    --primary: 220 90% 56%;
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 210 100% 40%;
+    --primary-hover: 220 90% 50%;
 
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 210 22% 15%;
+    --secondary: 145 85% 47%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 210 15% 55%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
 
-    --accent: 142 76% 36%;
+    --accent: 38 100% 60%;
     --accent-foreground: 0 0% 100%;
-    --accent-hover: 142 76% 32%;
+    --accent-hover: 38 100% 55%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --warning: 38 92% 50%;
+    --warning: 43 96% 56%;
     --warning-foreground: 0 0% 100%;
 
-    --success: 142 76% 36%;
+    --success: 145 85% 47%;
     --success-foreground: 0 0% 100%;
 
-    --border: 210 40% 90%;
-    --input: 210 40% 94%;
-    --ring: 210 100% 45%;
+    --border: 220 13% 91%;
+    --input: 220 13% 94%;
+    --ring: 220 90% 56%;
 
-    --radius: 0.75rem;
+    --radius: 12px;
 
-    /* Ride-sharing specific colors */
-    --ride-primary: 210 100% 45%;
-    --ride-secondary: 142 76% 36%;
+    /* Enhanced ride-sharing colors */
+    --ride-primary: 220 90% 56%;
+    --ride-secondary: 145 85% 47%;
+    --ride-accent: 38 100% 60%;
     --ride-surface: 0 0% 100%;
-    --ride-surface-dark: 210 40% 96%;
-    --ride-text: 210 22% 15%;
-    --ride-text-muted: 210 15% 55%;
+    --ride-surface-elevated: 220 20% 99%;
+    --ride-text: 210 22% 12%;
+    --ride-text-muted: 220 9% 46%;
     
-    /* Status colors */
-    --status-requested: 45 93% 47%;
-    --status-assigned: 210 100% 45%;
-    --status-accepted: 142 76% 36%;
-    --status-on-trip: 262 83% 58%;
-    --status-completed: 142 76% 36%;
+    /* Vibrant status colors */
+    --status-requested: 43 96% 56%;
+    --status-assigned: 220 90% 56%;
+    --status-accepted: 145 85% 47%;
+    --status-on-trip: 262 85% 65%;
+    --status-completed: 145 85% 47%;
     --status-cancelled: 0 84% 60%;
 
-    /* Map theming */
-    --map-marker: 210 100% 45%;
-    --map-route: 142 76% 36%;
+    /* Enhanced gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(220 90% 56%), hsl(220 90% 66%));
+    --gradient-secondary: linear-gradient(135deg, hsl(145 85% 47%), hsl(145 85% 57%));
+    --gradient-accent: linear-gradient(135deg, hsl(38 100% 60%), hsl(38 100% 70%));
+    --gradient-hero: linear-gradient(135deg, hsl(220 90% 56%) 0%, hsl(262 85% 65%) 50%, hsl(145 85% 47%) 100%);
+    --gradient-surface: linear-gradient(180deg, hsl(0 0% 100%), hsl(220 20% 99%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(220 20% 99%) 100%);
 
-    /* Animations */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    /* Enhanced shadows with colors */
+    --shadow-primary: 0 4px 20px hsl(220 90% 56% / 0.15);
+    --shadow-secondary: 0 4px 20px hsl(145 85% 47% / 0.15);
+    --shadow-accent: 0 4px 20px hsl(38 100% 60% / 0.15);
+    --shadow-elevated: 0 8px 32px hsl(220 90% 56% / 0.12), 0 2px 8px hsl(220 90% 56% / 0.08);
+    --shadow-floating: 0 12px 40px hsl(220 90% 56% / 0.15), 0 4px 12px hsl(220 90% 56% / 0.1);
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(210 100% 45%), hsl(210 100% 55%));
-    --gradient-accent: linear-gradient(135deg, hsl(142 76% 36%), hsl(142 76% 46%));
-    --gradient-surface: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 40% 98%));
+    /* Animation variables */
+    --animation-speed: 0.3s;
+    --animation-curve: cubic-bezier(0.4, 0, 0.2, 1);
+    --bounce-curve: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
-    /* Shadows */
-    --shadow-sm: 0 1px 2px 0 hsl(210 100% 45% / 0.05);
-    --shadow-md: 0 4px 6px -1px hsl(210 100% 45% / 0.1), 0 2px 4px -1px hsl(210 100% 45% / 0.06);
-    --shadow-lg: 0 10px 15px -3px hsl(210 100% 45% / 0.1), 0 4px 6px -2px hsl(210 100% 45% / 0.05);
-    --shadow-xl: 0 20px 25px -5px hsl(210 100% 45% / 0.1), 0 10px 10px -5px hsl(210 100% 45% / 0.04);
-
+    /* Sidebar colors */
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 210 22% 8%;
-    --foreground: 0 0% 95%;
+    --background: 220 26% 8%;
+    --foreground: 220 20% 95%;
 
-    --card: 210 22% 10%;
-    --card-foreground: 0 0% 95%;
+    --card: 220 26% 10%;
+    --card-foreground: 220 20% 95%;
 
-    --popover: 210 22% 10%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 220 26% 10%;
+    --popover-foreground: 220 20% 95%;
 
-    --primary: 210 100% 55%;
-    --primary-foreground: 0 0% 100%;
-    --primary-hover: 210 100% 50%;
+    --primary: 220 90% 65%;
+    --primary-foreground: 220 26% 8%;
+    --primary-hover: 220 90% 60%;
 
-    --secondary: 210 22% 15%;
-    --secondary-foreground: 0 0% 95%;
+    --secondary: 145 85% 55%;
+    --secondary-foreground: 220 26% 8%;
 
-    --muted: 210 22% 15%;
-    --muted-foreground: 210 15% 65%;
+    --muted: 220 26% 15%;
+    --muted-foreground: 220 15% 65%;
 
-    --accent: 142 76% 42%;
-    --accent-foreground: 0 0% 100%;
-    --accent-hover: 142 76% 38%;
+    --accent: 38 100% 65%;
+    --accent-foreground: 220 26% 8%;
+    --accent-hover: 38 100% 60%;
 
     --destructive: 0 84% 65%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 220 20% 95%;
 
-    --warning: 38 92% 55%;
-    --warning-foreground: 0 0% 100%;
+    --warning: 43 96% 60%;
+    --warning-foreground: 220 26% 8%;
 
-    --success: 142 76% 42%;
-    --success-foreground: 0 0% 100%;
+    --success: 145 85% 55%;
+    --success-foreground: 220 26% 8%;
 
-    --border: 210 22% 20%;
-    --input: 210 22% 15%;
-    --ring: 210 100% 55%;
+    --border: 220 26% 18%;
+    --input: 220 26% 15%;
+    --ring: 220 90% 65%;
 
     /* Dark mode ride-sharing colors */
-    --ride-primary: 210 100% 55%;
-    --ride-secondary: 142 76% 42%;
-    --ride-surface: 210 22% 10%;
-    --ride-surface-dark: 210 22% 8%;
-    --ride-text: 0 0% 95%;
-    --ride-text-muted: 210 15% 65%;
-
-    /* Dark status colors */
-    --status-requested: 45 93% 52%;
-    --status-assigned: 210 100% 55%;
-    --status-accepted: 142 76% 42%;
-    --status-on-trip: 262 83% 63%;
-    --status-completed: 142 76% 42%;
-    --status-cancelled: 0 84% 65%;
+    --ride-primary: 220 90% 65%;
+    --ride-secondary: 145 85% 55%;
+    --ride-accent: 38 100% 65%;
+    --ride-surface: 220 26% 10%;
+    --ride-surface-elevated: 220 26% 12%;
+    --ride-text: 220 20% 95%;
+    --ride-text-muted: 220 15% 65%;
 
     /* Dark gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(210 100% 55%), hsl(210 100% 65%));
-    --gradient-accent: linear-gradient(135deg, hsl(142 76% 42%), hsl(142 76% 52%));
-    --gradient-surface: linear-gradient(180deg, hsl(210 22% 10%), hsl(210 22% 8%));
+    --gradient-hero: linear-gradient(135deg, hsl(220 90% 65%) 0%, hsl(262 85% 70%) 50%, hsl(145 85% 55%) 100%);
+    --gradient-surface: linear-gradient(180deg, hsl(220 26% 10%), hsl(220 26% 8%));
+    --gradient-card: linear-gradient(145deg, hsl(220 26% 10%) 0%, hsl(220 26% 12%) 100%);
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -173,5 +163,189 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    background: var(--gradient-surface);
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Enhanced ride-sharing styles */
+  .ride-gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .ride-gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+
+  .ride-gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .ride-shadow-primary {
+    box-shadow: var(--shadow-primary);
+  }
+
+  .ride-shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .ride-shadow-floating {
+    box-shadow: var(--shadow-floating);
+  }
+
+  /* Ride status indicators */
+  .status-indicator {
+    @apply w-3 h-3 rounded-full animate-pulse;
+  }
+
+  .status-requested {
+    background-color: hsl(var(--status-requested));
+  }
+
+  .status-assigned {
+    background-color: hsl(var(--status-assigned));
+  }
+
+  .status-accepted {
+    background-color: hsl(var(--status-accepted));
+  }
+
+  .status-on-trip {
+    background-color: hsl(var(--status-on-trip));
+  }
+
+  .status-completed {
+    background-color: hsl(var(--status-completed));
+  }
+
+  .status-cancelled {
+    background-color: hsl(var(--status-cancelled));
+  }
+
+  /* Enhanced animations */
+  .animate-bounce-in {
+    animation: bounce-in 0.6s var(--bounce-curve);
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.4s var(--animation-curve);
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.5s var(--animation-curve);
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.3s var(--animation-curve);
+  }
+
+  /* Ride-specific button variants */
+  .btn-ride-primary {
+    @apply bg-gradient-to-r from-primary to-primary/90 text-primary-foreground;
+    @apply hover:from-primary/90 hover:to-primary/80 hover:scale-105;
+    @apply transition-all duration-300 ease-out;
+    box-shadow: var(--shadow-primary);
+  }
+
+  .btn-ride-secondary {
+    @apply bg-gradient-to-r from-secondary to-secondary/90 text-secondary-foreground;
+    @apply hover:from-secondary/90 hover:to-secondary/80 hover:scale-105;
+    @apply transition-all duration-300 ease-out;
+    box-shadow: var(--shadow-secondary);
+  }
+
+  .btn-ride-accent {
+    @apply bg-gradient-to-r from-accent to-accent/90 text-accent-foreground;
+    @apply hover:from-accent/90 hover:to-accent/80 hover:scale-105;
+    @apply transition-all duration-300 ease-out;
+    box-shadow: var(--shadow-accent);
+  }
+
+  /* Card enhancements */
+  .card-elevated {
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-elevated);
+    @apply border border-border/50 backdrop-blur-sm;
+  }
+
+  .card-floating {
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-floating);
+    @apply border border-border/30 backdrop-blur-md;
+  }
+
+  /* Interactive elements */
+  .interactive-scale {
+    @apply transition-all duration-200 ease-out hover:scale-[1.02] active:scale-[0.98];
+  }
+
+  .interactive-glow {
+    @apply transition-all duration-300 ease-out hover:shadow-lg;
+  }
+
+  .interactive-glow:hover {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
   }
 }
