@@ -8,35 +8,78 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 0 0% 99%;
+    --foreground: 210 22% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 210 22% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 210 22% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 210 100% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 210 100% 40%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 210 22% 15%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 210 15% 55%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 142 76% 36%;
+    --accent-foreground: 0 0% 100%;
+    --accent-hover: 142 76% 32%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
 
-    --radius: 0.5rem;
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 210 40% 90%;
+    --input: 210 40% 94%;
+    --ring: 210 100% 45%;
+
+    --radius: 0.75rem;
+
+    /* Ride-sharing specific colors */
+    --ride-primary: 210 100% 45%;
+    --ride-secondary: 142 76% 36%;
+    --ride-surface: 0 0% 100%;
+    --ride-surface-dark: 210 40% 96%;
+    --ride-text: 210 22% 15%;
+    --ride-text-muted: 210 15% 55%;
+    
+    /* Status colors */
+    --status-requested: 45 93% 47%;
+    --status-assigned: 210 100% 45%;
+    --status-accepted: 142 76% 36%;
+    --status-on-trip: 262 83% 58%;
+    --status-completed: 142 76% 36%;
+    --status-cancelled: 0 84% 60%;
+
+    /* Map theming */
+    --map-marker: 210 100% 45%;
+    --map-route: 142 76% 36%;
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(210 100% 45%), hsl(210 100% 55%));
+    --gradient-accent: linear-gradient(135deg, hsl(142 76% 36%), hsl(142 76% 46%));
+    --gradient-surface: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 40% 98%));
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(210 100% 45% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(210 100% 45% / 0.1), 0 2px 4px -1px hsl(210 100% 45% / 0.06);
+    --shadow-lg: 0 10px 15px -3px hsl(210 100% 45% / 0.1), 0 4px 6px -2px hsl(210 100% 45% / 0.05);
+    --shadow-xl: 0 20px 25px -5px hsl(210 100% 45% / 0.1), 0 10px 10px -5px hsl(210 100% 45% / 0.04);
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,33 +99,62 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 210 22% 8%;
+    --foreground: 0 0% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 210 22% 10%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 210 22% 10%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 210 100% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 210 100% 50%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 210 22% 15%;
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 210 22% 15%;
+    --muted-foreground: 210 15% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 142 76% 42%;
+    --accent-foreground: 0 0% 100%;
+    --accent-hover: 142 76% 38%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 65%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --warning: 38 92% 55%;
+    --warning-foreground: 0 0% 100%;
+
+    --success: 142 76% 42%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 210 22% 20%;
+    --input: 210 22% 15%;
+    --ring: 210 100% 55%;
+
+    /* Dark mode ride-sharing colors */
+    --ride-primary: 210 100% 55%;
+    --ride-secondary: 142 76% 42%;
+    --ride-surface: 210 22% 10%;
+    --ride-surface-dark: 210 22% 8%;
+    --ride-text: 0 0% 95%;
+    --ride-text-muted: 210 15% 65%;
+
+    /* Dark status colors */
+    --status-requested: 45 93% 52%;
+    --status-assigned: 210 100% 55%;
+    --status-accepted: 142 76% 42%;
+    --status-on-trip: 262 83% 63%;
+    --status-completed: 142 76% 42%;
+    --status-cancelled: 0 84% 65%;
+
+    /* Dark gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(210 100% 55%), hsl(210 100% 65%));
+    --gradient-accent: linear-gradient(135deg, hsl(142 76% 42%), hsl(142 76% 52%));
+    --gradient-surface: linear-gradient(180deg, hsl(210 22% 10%), hsl(210 22% 8%));
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
